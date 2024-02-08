@@ -1,6 +1,6 @@
 import React from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {clear_Filtered_Transaction_Data} from '../../../redux/Transaction/Transaction_Action'
+import { useDispatch, useSelector } from 'react-redux'
+import { clear_Filtered_Transaction_Data } from '../../../redux/Transaction/Transaction_Action'
 import Search_Card from './Search_Card'
 interface ParkingTableProps {
   inputs: {
@@ -9,8 +9,8 @@ interface ParkingTableProps {
     end_Date: Date | null
   }
 }
-const Parking_Table: React.FC<ParkingTableProps> = ({inputs}) => {
-  const {filtered_data} = useSelector((state: any) => state.Transaction_Reducers)
+const Parking_Table: React.FC<ParkingTableProps> = ({ inputs }) => {
+  const { filtered_data } = useSelector((state: any) => state.Transaction_Reducers)
   const dispatch = useDispatch()
 
   //console.log('car_table', filtered_data)
@@ -21,8 +21,7 @@ const Parking_Table: React.FC<ParkingTableProps> = ({inputs}) => {
   return (
     <div className='card'>
       <div className='modal-header'>
-        <h2>Search LBN</h2>
-
+        <h2>Search LPN</h2>
         <div
           className='btn btn-sm btn-icon btn-active-color-primary'
           data-bs-dismiss='modal'
@@ -40,10 +39,10 @@ const Parking_Table: React.FC<ParkingTableProps> = ({inputs}) => {
           className='card-body p-0 tab-pane fade show active'
           role='tabpanel'
         >
-          <div className='hover-scroll mh-850px'>
-            <table className='table table-hover align-middle table-row-bordered table-row-solid gy-4 gs-9'>
+          <div className=''>
+            <table className='table table-hover align-middle table-row-bordered table-row-solid gy-4 gs-9 mb-0' >
               <thead className='border-gray-200 fs-5 fw-semibold bg-lighten'>
-                <tr>
+                <tr className='text-gray-700' style={{ fontSize: '14px' }}>
                   <th className='min-w-125px '>Image</th>
                   <th className='min-w-125px '>EPAN</th>
                   <th className='min-w-125px '>Licence_Plate</th>
@@ -73,7 +72,7 @@ const Parking_Table: React.FC<ParkingTableProps> = ({inputs}) => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan={6} className='text-center'>
+                    <td colSpan={6} className='text-center pb-2 pt-2 mt-2 mb-2' >
                       No data found.{' '}
                     </td>
                   </tr>

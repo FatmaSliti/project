@@ -14,6 +14,7 @@ interface ParkingTableProps {
     end_Date: Date | null
   }
 }
+
 const Search_Card: React.FC<ParkingTableProps> = ({inputs}) => {
 
   const dispatch = useDispatch()
@@ -42,6 +43,7 @@ const Search_Card: React.FC<ParkingTableProps> = ({inputs}) => {
       formik.setFieldValue('end_Date', endDate.toISOString())
     }
   }
+
   useEffect(() => {
     formik.setValues({
       licence_plate: inputs?.licence_plate,

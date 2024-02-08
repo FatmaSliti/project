@@ -183,6 +183,7 @@ const Main_Page: React.FC = () => {
         <div className='col-xl-8'>
           <div>
             <Transaction_Details TransactionData={transactionData} className='card-xl-stretch mb-5 mb-xl-8' onButtonClick={handleDataFromTransactionDetails} />
+            {/* <Transaction_Details TransactionData={transactionData} className='card-xl-stretch mb-5 mb-xl-8'/> */}
             <First_Article_Buttons transactionData={transactionData} className='card-xl-stretch mb-5 mb-xl-8' prefix='uniqueprefix1' />
             <Second_Article_Buttons className='card-xl-stretch mb-5 mb-xl-8' prefix2='uniqueprefix2' />
           </div>

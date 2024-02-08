@@ -45,7 +45,7 @@ const Payment_Buttons: React.FC = () => {
       },
     ],
   };
-  
+
   const [selectedButton, setSelectedButton] = useState<number | null>(null)
 
   const handleButtonClick = (index: number) => {

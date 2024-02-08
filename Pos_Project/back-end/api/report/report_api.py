@@ -4,7 +4,7 @@ from models.report_base_model import shift_report_row_response_model, shift_repo
 from models.shift_base_model import Shift_report_add
 from api.report.report_mongo_model import Report_document, Order, Item
 from api.report.report_mongo_model import ShiftReport
-from typing import List
+from typing import List, Dict, Any
 
 report_router = APIRouter(prefix='/report')
 
@@ -12,8 +12,31 @@ report_router = APIRouter(prefix='/report')
 ############################################
 
 
-@report_router.get('/shift_report', response_model=List[Shift_report_add])
+# @report_router.get('/shift_report', response_model=List[Shift_report_add])
+# def get_table_data():
+#     headerpart = {"total cash": 500, "total cc": 200}
+#     try:
+#         # Fetch data from MongoDB collection using MongoEngine
+#         documents = ShiftReport.objects()
+#         # Construct a list of dictionaries from MongoDB documents
+#         data = [
+#             {
+#                 "ArticleID": document.ArticleID,
+#                 "lpn": document.lpn,
+#                 "price": document.price,
+#                 "carteType": document.carteType,
+#                 "duration": document.duration
+#             }
+#             for document in documents
+#         ]
+#         return data
+#     except Exception as e:
+#         raise HTTPException(status_code=500, detail=f"Error: {e}")
+
+
+@report_router.get('/shift_report', response_model=Dict[str, Any])
 def get_table_data():
+    headerpart = {"total cash": 500, "total cc": 200}
     try:
         # Fetch data from MongoDB collection using MongoEngine
         documents = ShiftReport.objects()
@@ -28,11 +51,72 @@ def get_table_data():
             }
             for document in documents
         ]
-        return data
+        return {"headerpart": headerpart, "data": data}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error: {e}")
 
 
+# @report_router.get('/shift_report', response_model=List[Shift_report_add])
+# def get_table_data():
+#     headerpart = {"total cash": 500, "total cc": 200}
+#     try:
+#         # Fetch data from MongoDB collection using MongoEngine
+#         documents = ShiftReport.objects()
+#         # Construct a list of dictionaries from MongoDB documents
+#         data = [
+#             {
+#                 "ArticleID": document.ArticleID,
+#                 "lpn": document.lpn,
+#                 "price": document.price,
+#                 "carteType": document.carteType,
+#                 "duration": document.duration
+#             }
+#             for document in documents
+#         ]
+#         return data
+#     except Exception as e:
+#         raise HTTPException(status_code=500, detail=f"Error: {e}")
+
+# from fastapi import HTTPException, APIRouter
+# from models.shift_base_model import Shift_report_add
+# from api.report.report_mongo_model import ShiftReport
+# from typing import List
+
+# report_router = APIRouter(prefix='/report')
+
+
+
+# def fetch_headerpart_data():
+#     # Assuming you have logic to fetch the headerpart data from MongoDB or any other data source
+#     headerpart = {"total cash": 500, "total cc": 200}
+#     return headerpart
+
+# @report_router.get('/shift_report', response_model=List[Shift_report_add])
+# def get_table_data():
+#     try:
+#         # Fetch data from MongoDB collection using MongoEngine
+#         documents = ShiftReport.objects()
+#         # Fetch headerpart data
+#         headerpart = fetch_headerpart_data()
+#         # Construct a list of dictionaries from MongoDB documents
+#         data = [
+#             {
+#                 "ArticleID": document.ArticleID,
+#                 "lpn": document.lpn,
+#                 "price": document.price,
+#                 "carteType": document.carteType,
+#                 "duration": document.duration
+#             }
+#             for document in documents
+#         ]
+#         # Return dictionary containing headerpart data and fetched data
+#         return {"headerpart": headerpart, "data": data}
+#     except Exception as e:
+#         raise HTTPException(status_code=500, detail=f"Error: {e}")
+
+
+
+# headerpart=["total cash":500,"total cc":200]
 #############################################
 
 

@@ -52,7 +52,6 @@ export const fetch_Paused_Shifts: any = () => async (dispatch) => {
 
 export const print_Receipt: any = () => async (dispatch) => {
   try {
-   
     dispatch({type: PRINT_RECEIPT})
   } catch (error) {
     toast.error('Failed to get paused shifts')

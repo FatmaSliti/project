@@ -95,8 +95,8 @@
 
   // Body
   .card-body {
-    // padding: $card-py $card-px;
-    padding: 2.3rem $card-px;
+    padding: $card-py $card-px;
+    // padding: 2.3rem $card-px;
     color: var(--#{$prefix}card-color);
   }
 

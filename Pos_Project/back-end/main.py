@@ -14,6 +14,7 @@ from api.shift.shift_api import shift_router
 from api.admin.admin_api import admin_router
 from api.auth.admin_auth_api import admin_auth_router
 from api.article_btns.article_btns_api import article_btns_router
+from api.control_button_actions.receipt.receipt_api import receipt_router
 
 def initialize_backend_application() -> fastapi.FastAPI:
     app = fastapi.FastAPI()  # type: ignore
@@ -28,12 +29,13 @@ def initialize_backend_application() -> fastapi.FastAPI:
     app.include_router(admin_router)
     app.include_router(shift_router)
     app.include_router(article_btns_router)
+    app.include_router(receipt_router)
     app.add_middleware(CORSMiddleware,
-                       allow_origins=ALLOWED_ORIGINS,
-                       allow_credentials=ALLOWED_CREDENTIALS,
-                       allow_methods=ALLOWED_METHODS,
-                       allow_headers=LLOWED_HEADERS,
-                       )
+                    allow_origins=ALLOWED_ORIGINS,
+                    allow_credentials=ALLOWED_CREDENTIALS,
+                    allow_methods=ALLOWED_METHODS,
+                    allow_headers=LLOWED_HEADERS,
+                    )
 
     # app.add_event_handler(
     #     "startup",

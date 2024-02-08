@@ -77,23 +77,6 @@ const Transaction_Table: React.FC<TransactionTableProps> = ({ onButtonClick }) =
   const { epan, licence_plate, card_type, entry_time, duration_stay } = data?.ticket_data || {};
   const intl = useIntl();
 
-  // const handleButtonClick = () => {
-  //   const inputData = {
-  //     epan,
-  //     licence_plate,
-  //     card_type,
-  //     entry_time,
-  //     duration_stay,
-  //   };
-  //   console.log('Input Data:', inputData);
-  //   // onButtonClick(inputData);
-  //   if (typeof onButtonClick === 'function') {
-  //     onButtonClick(inputData);
-  //   } else {
-  //     console.log('onButtonClick is not a function');
-  //   }
-  // };
-
   return (
     <div className='mb-0'>
       <div className='row gx-10'>
@@ -142,12 +125,33 @@ const Transaction_Table: React.FC<TransactionTableProps> = ({ onButtonClick }) =
           </div>
         </div>
       </div>
-
-      {/* <button className="btn btn-primary" onClick={handleButtonClick}>
-        Log Input Data
-      </button> */}
     </div>
   );
 };
 
 export default Transaction_Table;
+
+
+
+
+// const handleButtonClick = () => {
+//   const inputData = {
+//     epan,
+//     licence_plate,
+//     card_type,
+//     entry_time,
+//     duration_stay,
+//   };
+//   console.log('Input Data:', inputData);
+//   // onButtonClick(inputData);
+//   if (typeof onButtonClick === 'function') {
+//     onButtonClick(inputData);
+//   } else {
+//     console.log('onButtonClick is not a function');
+//   }
+// };
+
+
+// {/* <button className="btn btn-primary" onClick={handleButtonClick}>
+//         Log Input Data
+//       </button> */}
