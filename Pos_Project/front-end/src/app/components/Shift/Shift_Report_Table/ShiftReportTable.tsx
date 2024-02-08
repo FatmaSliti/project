@@ -19,23 +19,41 @@ const ShiftReportTable: React.FC = () => {
     fetchData()
   }, [])
 
+  // const fetchData = async () => {
+  //   setIsLoading(true)
+  //   try {
+  //     const response = await fetch('http://127.0.0.1:8000/report/shift_report')
+  //     if (!response.ok) {
+  //       setFetchError(true)
+  //     } else {
+  //       const jsonData = await response.json()
+  //       setData(jsonData)
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching data:', error)
+  //     setFetchError(true) // Set fetch error flag on error
+  //   } finally {
+  //     setIsLoading(false) // Always set loading to false after fetch
+  //   }
+  // }
+
   const fetchData = async () => {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
-      const response = await fetch('http://127.0.0.1:8000/report/shift_report')
+      const response = await fetch('http://127.0.0.1:8000/report/shift_report');
       if (!response.ok) {
-        setFetchError(true)
+        setFetchError(true);
       } else {
-        const jsonData = await response.json()
-        setData(jsonData)
+        const jsonData = await response.json();
+        setData(jsonData.data); // Extract 'data' from the response object
       }
     } catch (error) {
-      console.error('Error fetching data:', error)
-      setFetchError(true) // Set fetch error flag on error
+      console.error('Error fetching data:', error);
+      setFetchError(true); // Set fetch error flag on error
     } finally {
-      setIsLoading(false) // Always set loading to false after fetch
+      setIsLoading(false); // Always set loading to false after fetch
     }
-  }
+  };
 
   return (
     <div className='card-body'>

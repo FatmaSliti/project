@@ -5,6 +5,7 @@ from models.shift_base_model import Shift_report_add
 from api.report.report_mongo_model import Report_document, Order, Item
 from api.report.report_mongo_model import ShiftReport
 from typing import List, Dict, Any
+from pydantic import BaseModel
 
 report_router = APIRouter(prefix='/report')
 
@@ -34,48 +35,33 @@ report_router = APIRouter(prefix='/report')
 #         raise HTTPException(status_code=500, detail=f"Error: {e}")
 
 
-@report_router.get('/shift_report', response_model=Dict[str, Any])
+
+class ShiftReportResponse(BaseModel):
+    headerpart: Dict[str, int]
+    data: List[Shift_report_add]
+
+@report_router.get('/shift_report', response_model=ShiftReportResponse)
 def get_table_data():
     headerpart = {"total cash": 500, "total cc": 200}
     try:
         # Fetch data from MongoDB collection using MongoEngine
         documents = ShiftReport.objects()
-        # Construct a list of dictionaries from MongoDB documents
+        # Construct a list of Shift_report_add objects
         data = [
-            {
-                "ArticleID": document.ArticleID,
-                "lpn": document.lpn,
-                "price": document.price,
-                "carteType": document.carteType,
-                "duration": document.duration
-            }
+            Shift_report_add(
+                ArticleID=document.ArticleID,
+                lpn=document.lpn,
+                price=document.price,
+                carteType=document.carteType,
+                duration=document.duration
+            )
             for document in documents
         ]
-        return {"headerpart": headerpart, "data": data}
+        return ShiftReportResponse(headerpart=headerpart, data=data)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error: {e}")
 
 
-# @report_router.get('/shift_report', response_model=List[Shift_report_add])
-# def get_table_data():
-#     headerpart = {"total cash": 500, "total cc": 200}
-#     try:
-#         # Fetch data from MongoDB collection using MongoEngine
-#         documents = ShiftReport.objects()
-#         # Construct a list of dictionaries from MongoDB documents
-#         data = [
-#             {
-#                 "ArticleID": document.ArticleID,
-#                 "lpn": document.lpn,
-#                 "price": document.price,
-#                 "carteType": document.carteType,
-#                 "duration": document.duration
-#             }
-#             for document in documents
-#         ]
-#         return data
-#     except Exception as e:
-#         raise HTTPException(status_code=500, detail=f"Error: {e}")
 
 # from fastapi import HTTPException, APIRouter
 # from models.shift_base_model import Shift_report_add
