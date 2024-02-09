@@ -29,3 +29,20 @@ async def print_receipt(request_data: PrintRequest):
     await asyncio.sleep(1)
     # Send back a response indicating the receipt has been printed
     return {"message": "Receipt printed successfully"}
+
+class Item(BaseModel):
+    ArticleID: int
+    lpn: str
+    price: float
+    carteType: str
+    duration: str
+
+# @receipt_router.post("/print-from-transaction-details")
+# async def print_receipt(item: Item):
+#     return {"message": "Receipt printed successfully"}  # You can customize the message as needed
+@receipt_router.post("/print-from-transaction-details")
+async def print_receipt(item: Item):
+    # Process the item data as needed, e.g., print receipt
+    return {"message": "Receipt printed successfully for LPN: {}, ArticleID: {}, Price: {}, Carte Type: {}, Duration: {}".format(
+        item.lpn, item.ArticleID, item.price, item.carteType, item.duration
+    )}

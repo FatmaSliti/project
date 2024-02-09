@@ -211,7 +211,7 @@
 //                     height: 150,
 //                     // border: clickedButton === index ? '3.45px solid #3E97FF' : '1.58px solid #D8D8E5',
 //                     backgroundColor: clickedButton === index ? '#3e97ff' : '',
-                    
+
 //                   }}
 //                   onClick={() => handleButtonClick(index)}
 //                 >
@@ -233,6 +233,7 @@
 // };
 
 // export default First_Article_Buttons;
+
 import React, { useState, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
@@ -307,8 +308,8 @@ const First_Article_Buttons: React.FC<Props> = ({ className, prefix, transaction
   return (
     <div className={`card ${className}`}>
       <div className='card-body' style={{ position: 'relative', margin: '0 20px', padding: '2rem 4rem' }}>
-        <div className={`swiper-button-next ${prefix}-swiper-button-next`} style={{ color: 'black', fontWeight: 'bold', transform: 'scale(0.3)', position: 'absolute', right: 0, top: '50%' }}></div>
-        <div className={`swiper-button-prev ${prefix}-swiper-button-prev`} style={{ color: 'black', fontWeight: 'bold', transform: 'scale(0.3)', position: 'absolute', left: 0, top: '50%' }}></div>
+        <div className={`swiper-button-next ${prefix}-swiper-button-next`} style={{ color: 'black', fontWeight: 'bold', transform: 'scale(0.4)', position: 'absolute', right: 0, top: '50%' }}></div>
+        <div className={`swiper-button-prev ${prefix}-swiper-button-prev`} style={{ color: 'black', fontWeight: 'bold', transform: 'scale(0.4)', position: 'absolute', left: 0, top: '50%' }}></div>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={10}

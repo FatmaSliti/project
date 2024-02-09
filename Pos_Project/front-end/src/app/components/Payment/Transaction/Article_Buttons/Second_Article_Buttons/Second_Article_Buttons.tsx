@@ -16,12 +16,11 @@ type Props = {
 
 const Second_Article_Buttons: React.FC<Props> = ({className, prefix2}) => {
   const intl = useIntl()
-
   return (
     <div className={`card ${className}`}>
       <div className='card-body position-relative' style={{margin: '0 20px', padding: '2rem 4rem'}}>
-        <div className={`swiper-button-next ${prefix2}-swiper-button-next`} style={{ color: 'black', fontWeight: 'bold', transform: 'scale(0.3)', position: 'absolute', right: 0, top: '50%' }}></div>
-        <div className={`swiper-button-prev ${prefix2}-swiper-button-prev`} style={{ color: 'black', fontWeight: 'bold', transform: 'scale(0.3)', position: 'absolute', left: 0, top: '50%' }}></div>
+        <div className={`swiper-button-next ${prefix2}-swiper-button-next`} style={{ color: 'black', fontWeight: 'bold', transform: 'scale(0.4)', position: 'absolute', right: 0, top: '50%' }}></div>
+        <div className={`swiper-button-prev ${prefix2}-swiper-button-prev`} style={{ color: 'black', fontWeight: 'bold', transform: 'scale(0.4)', position: 'absolute', left: 0, top: '50%' }}></div>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           spaceBetween={10}

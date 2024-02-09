@@ -15,6 +15,7 @@ from api.admin.admin_api import admin_router
 from api.auth.admin_auth_api import admin_auth_router
 from api.article_btns.article_btns_api import article_btns_router
 from api.control_button_actions.receipt.receipt_api import receipt_router
+from api.control_button_actions.Barrier.barrier_api import barrier_router
 
 def initialize_backend_application() -> fastapi.FastAPI:
     app = fastapi.FastAPI()  # type: ignore
@@ -30,6 +31,7 @@ def initialize_backend_application() -> fastapi.FastAPI:
     app.include_router(shift_router)
     app.include_router(article_btns_router)
     app.include_router(receipt_router)
+    app.include_router(barrier_router)
     app.add_middleware(CORSMiddleware,
                     allow_origins=ALLOWED_ORIGINS,
                     allow_credentials=ALLOWED_CREDENTIALS,
@@ -61,3 +63,4 @@ if __name__ == "__main__":
                 workers=SERVER_WORKERS,
                 log_level=UVICORN_LOG_LEVEL.lower(),
                 )
+

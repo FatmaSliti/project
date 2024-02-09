@@ -4,8 +4,8 @@ export const ButtonsData = (status, selectedButtons) => [
     img: `media/buttons/${selectedButtons[0] ? 'new-' : ''}Barrier.svg`,
   },
   {
-    title: status === 'ink_out' ? 'NO INK' : 'CHEKOUT.PRINT.BUTTON',
-    img: status === 'ink_out' ? '' : `media/buttons/${selectedButtons[1] ? 'new-' : ''}Print.svg`,
+    title: status === 'ink_out' ? 'Error' : 'CHEKOUT.PRINT.BUTTON',
+    img: status === 'ink_out' ? 'media/buttons/innkoutprinter.svg' : `media/buttons/${selectedButtons[1] ? 'new-' : ''}Print.svg`,
   },
   {
     title: 'CHEKOUT.RECEIPT.BUTTON',

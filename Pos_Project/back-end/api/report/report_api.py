@@ -42,7 +42,7 @@ class ShiftReportResponse(BaseModel):
 
 @report_router.get('/shift_report', response_model=ShiftReportResponse)
 def get_table_data():
-    headerpart = {"total cash": 500, "total cc": 200}
+    headerpart = {"total cash": 500, "total cc": 200, "total ca": 500, "total revenue": 200, "total cah": 500}
     try:
         # Fetch data from MongoDB collection using MongoEngine
         documents = ShiftReport.objects()
@@ -69,7 +69,6 @@ def get_table_data():
 # from typing import List
 
 # report_router = APIRouter(prefix='/report')
-
 
 
 # def fetch_headerpart_data():

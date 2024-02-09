@@ -2,7 +2,7 @@ from fastapi import HTTPException, APIRouter
 from mongoengine import Document, StringField, DictField
 from pydantic import BaseModel
 from models.article_buttons_models import Button
-
+from config.log_config import logger
 article_btns_router = APIRouter()
 
 class ButtonModel(Document):
@@ -48,11 +48,11 @@ def add_button(button: Button):
 def button_click(data: dict):
     try:
         button_id = data.get('id')
-        
         if button_id is None:
             raise ValueError('Button ID is missing in the request body')
-
+        
         # Perform actions with button_id
         return {"status": "success", "button_id": button_id}
     except Exception as e:
+        logger.error(e)
         return {"status": "error", "error_message": str(e)}
