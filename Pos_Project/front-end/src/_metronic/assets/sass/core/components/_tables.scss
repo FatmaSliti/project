@@ -229,9 +229,9 @@
             padding-left: $value;
           }
 
-          &:last-child {
-            padding-right: $value;
-          }
+          // &:last-child {
+          //   padding-right: $value;
+          // }
 
           // Datatables responsive mode fix
           &.dtr-control:first-child {

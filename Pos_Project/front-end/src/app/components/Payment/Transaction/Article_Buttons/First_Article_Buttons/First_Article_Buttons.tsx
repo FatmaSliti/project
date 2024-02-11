@@ -262,7 +262,7 @@ const First_Article_Buttons: React.FC<Props> = ({ className, prefix, transaction
 
   const handleButtonClick = async (buttonId) => {
     try {
-      console.log('Transaction Data before fetch:', transactionData);
+      // console.log('Transaction Data before fetch:', transactionData);
       const response = await fetch('http://127.0.0.1:8000/button-click', {
         method: 'POST',
         headers: {

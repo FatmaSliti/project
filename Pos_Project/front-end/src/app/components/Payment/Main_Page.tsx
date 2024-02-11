@@ -165,8 +165,6 @@ const Main_Page: React.FC = () => {
     duration_stay: '',
   });
 
-  const [mainAppState, setMainAppState] = useState<any>(null);
-
   const handleDataFromTransactionDetails = (data: any) => {
     console.log('Data received in the main app component from Transaction_Details:', data);
     setTransactionData(data);

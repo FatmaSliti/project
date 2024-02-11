@@ -13,6 +13,10 @@
 #     return {"message": "Receipt printed successfully"}
 
 
+
+
+
+
 from fastapi import FastAPI, APIRouter
 from pydantic import BaseModel
 import asyncio
@@ -26,7 +30,7 @@ class PrintRequest(BaseModel):
 @receipt_router.post("/print-receipt")
 async def print_receipt(request_data: PrintRequest):
     # Introduce a delay of 5 seconds (for example)
-    await asyncio.sleep(1)
+    await asyncio.sleep(5)
     # Send back a response indicating the receipt has been printed
     return {"message": "Receipt printed successfully"}
 
@@ -46,3 +50,4 @@ async def print_receipt(item: Item):
     return {"message": "Receipt printed successfully for LPN: {}, ArticleID: {}, Price: {}, Carte Type: {}, Duration: {}".format(
         item.lpn, item.ArticleID, item.price, item.carteType, item.duration
     )}
+

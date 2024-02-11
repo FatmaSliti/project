@@ -8,7 +8,7 @@ const Shift: React.FC = () => {
         <Card />
       </div>
 
-      <div className='card mt-6'>
+      <div className='card mt-6 mb-6'>
         <ShiftReportTable />
       </div>
     </>

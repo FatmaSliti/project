@@ -90,28 +90,29 @@ const ShiftReportTable: React.FC = () => {
     }
   };
 
-
   return (
-    <div className='card-body'>
+    <div className='card-body '>
       <div className='card'>
-        <div className='card-header card-header-stretch border-bottom border-gray-200' >
-          <div className='d-flex align-items-center justify-content-between'>
-            <div className='col'>
-              <div className='card-title'>
-                <h3 className='fw-bold m-0'>{intl.formatMessage({ id: 'SHIFT.TABLE.TITLE' })}</h3>
+        <div className='d-flex align-items-center justify-content-between '>
+          <div className='card-header card-header-stretch border-bottom border-gray-200' >
+            <div className='d-flex align-items-center justify-content-between'>
+              <div className='col'>
+                <div className='card-title'>
+                  <h3 className='fw-bold m-0'>{intl.formatMessage({ id: 'SHIFT.TABLE.TITLE' })}</h3>
+                </div>
               </div>
             </div>
-            <div className='col'>
-              <div className='input-group'>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search by LPN"
-                  value={searchLPN}
-                  onChange={(e) => setSearchLPN(e.target.value)}
-                />
-                <button className="btn btn-secondary" type="button" onClick={handleSearch}>Search</button>
-              </div>
+          </div>
+          <div className='col' style={{ maxWidth: '260px', paddingRight: '29.25px' }}>
+            <div className='input-group'>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Search by LPN"
+                value={searchLPN}
+                onChange={(e) => setSearchLPN(e.target.value)}
+              />
+              <button className="btn btn-secondary" type="button" onClick={handleSearch}>Search</button>
             </div>
           </div>
         </div>
@@ -140,7 +141,7 @@ const ShiftReportTable: React.FC = () => {
                     <td className=' min-w-100px'>
                       {intl.formatMessage({ id: 'SHIFT.TABLE.HEADER.DURATION' })}
                     </td>
-                    <td className='min-w-100px'>
+                    <td className='min-w-100px' style={{paddingRight: '0'}}>
                       Receipt
                     </td>
                   </tr>
@@ -187,12 +188,12 @@ const ShiftReportTable: React.FC = () => {
         </Modal.Header>
         <Modal.Body>
           {selectedItem && (
-            <div style={{ fontSize: '14px' }}>
-              <p>Article ID: {selectedItem.ArticleID}</p>
-              <p>LPN: {selectedItem.lpn}</p>
-              <p>Price: ${selectedItem.price}</p>
-              <p>Carte Type: {selectedItem.carteType}</p>
-              <p>Duration: {selectedItem.duration}</p>
+            <div style={{ fontSize: '16px' }}>
+              <p><strong  >Article ID:</strong> {selectedItem.ArticleID}</p>
+              <p><strong className=''>LPN:</strong> {selectedItem.lpn}</p>
+              <p><strong>Price:</strong> ${selectedItem.price}</p>
+              <p><strong className=''>Carte Type:</strong> {selectedItem.carteType}</p>
+              <p><strong className=''>Duration:</strong> {selectedItem.duration}</p>
             </div>
           )}
         </Modal.Body>
