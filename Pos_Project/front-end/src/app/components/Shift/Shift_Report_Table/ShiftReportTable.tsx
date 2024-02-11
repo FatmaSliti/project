@@ -181,10 +181,11 @@ const ShiftReportTable: React.FC = () => {
           </div>
         </div>
       </div>
+
       {/* Modal for displaying item details */}
       <Modal show={selectedItem !== null} onHide={handleCloseModal}>
         <Modal.Header closeButton>
-          <Modal.Title>Receipt Details</Modal.Title>
+          <Modal.Title className='text-primary' style={{ fontSize: '18px' }}>Receipt Details</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {selectedItem && (
